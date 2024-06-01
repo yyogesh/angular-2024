@@ -2,4 +2,78 @@
 <app-employee></app-employee>
 <app-employee></app-employee>
 <app-employee></app-employee>
+<hr/>
+<p>
+    {{user.name}}
+</p>
+<p>
+    {{user.address.street + ' ' + user.address.state}}
+</p>
 
+<p>{{10 +  20  +30}}</p>
+
+<p>{{["Red", "Blue", "Green"][1]}}</p>
+
+<p>{{1===1}}</p>
+
+<p>{{getUserInfo()}}</p>
+
+<button type="button" disabled="{{isDisabled}}">Submit Interpolltion</button>
+<button type="button" [disabled]="isDisabled">Submit Property</button>
+<button type="button" [attr.data-test]="title">Submit Attr</button>
+
+<img src="{{googleImageUrl}}" alt="google"/>
+
+<img [src]="googleImageUrl" alt="google"/>
+
+<p>{{badString}}</p>
+
+<p [innerHTML]="badString">Test</p>
+
+<p [innerHTML]="htmlString"></p>
+
+<button type="button" class="btn-class" [class]="status">Submit Attr</button>
+
+<button type="button" class="btn-class" [class.big-font]="isApplyStatus">Submit Attr</button>
+
+<button type="button" class="btn-class" [ngClass]="btnClass">Submit Attr</button>
+
+<button type="button" class="btn-class" 
+[ngClass]="{btn: !isDisabled, 'btn-primary': isApplyStatus}">Submit Attr</button>
+
+<button type="button" class="btn-class" 
+[ngClass]="isDisabled ? 'warning' : 'info' ">Submit Attr</button>
+
+<button type="button" class="btn-class" 
+[style.color]="'red'" 
+[style.font-weight]="'bold'">
+Submit Attr</button>
+
+<button type="button" class="btn-class" 
+[style.color]="isDisabled ? 'red': 'blue'"
+>
+Submit Attr</button>
+
+<button type="button" class="btn-class" 
+[style.font-size.px]="50"
+>
+Submit Attr</button>
+
+<button type="button" class="btn-class" 
+[ngStyle]="style"
+>
+Submit Attr</button>
+
+<button type="button" (click)="onEventClick()">Event</button>
+
+<input type="text" (keydown)="onInputKeyDown($event)"/>
+
+<input type="text" (keydown.shift.tab)="onInputKeyDown($event)"/>
+
+<hr/>
+Title {{title}}
+<input type="text" [value]="title" (input)="onInputChange($event)"/>
+
+<hr/>
+Title {{title}}
+<input type="text" [(ngModel)]="title"/>
