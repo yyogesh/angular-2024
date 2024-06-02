@@ -1,0 +1,13 @@
+ var movies = [
+
+                    { name: "Fan", likes: 0, dislikes: 0, Unseen:0, fimage:"/images/fan.jpg" },
+
+                    { name: "Airlift", likes: 0, dislikes: 0, Unseen:0,fimage:"/images/airlift.jpg" },
+
+                    { name: "Wazir", likes: 0, dislikes: 0, Unseen:0,fimage:"/images/wazir.jpg" },
+
+                    { name: "Neerja", likes: 0, dislikes: 0, Unseen:0,fimage:"/images/neerja.jpg" },
+
+                    { name: "Bajirao mastani", likes: 0, dislikes: 0, Unseen:0,fimage:"/images/bajirao.jpg" }
+
+                ];

@@ -1,0 +1,23 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Street</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(user of userData; track user.id;) {
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.address.street}}</td>
+          </tr>
+      } @empty {
+        <div>No data found</div>
+      }
+    </tbody>
+  </table>
+
+  <button (click)="onUpdateUserClick()">Update User</button>

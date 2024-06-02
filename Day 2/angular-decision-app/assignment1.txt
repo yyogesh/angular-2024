@@ -1,0 +1,51 @@
+[
+
+                    {
+
+                        name: "Haryana",
+
+                        cities: [
+
+                            { name: "Gurgaon" },
+
+                            { name: "Faridabad" },
+
+                            { name: "Sonipat" }
+
+                        ]
+
+                    },
+
+                    {
+
+                        name: "UP",
+
+                        cities: [
+
+                            { name: "Agra" },
+
+                            { name: "Aligarh" },
+
+                            { name: "Allahabad" }
+
+                        ]
+
+                    },
+
+                    {
+
+                        name: "Delhi",
+
+                        cities: [
+
+                            { name: "North Delhi" },
+
+                            { name: "North West Delhi" },
+
+                            { name: "West Delhi" }
+
+                        ]
+
+                    }
+
+                ];
