@@ -5,17 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatButtonModule} from '@angular/material/button';
+import { EmptyPipe } from './pipes/empty.pipe';
+import { TempConvertPipe } from './pipes/temp-convert.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [ // component, pipe, directive
+    AppComponent,
+    EmptyPipe,
+    TempConvertPipe
   ],
-  imports: [
+  imports: [ // modules
     BrowserModule,
     AppRoutingModule,
     MatButtonModule
   ],
-  providers: [
+  providers: [ // services
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

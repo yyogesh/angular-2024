@@ -6,3 +6,77 @@
     <button mat-flat-button disabled>Disabled</button>
     <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
   </div>
+
+  <button [attr.material]="'testing'" 
+  [attr.version]="version" 
+  [attr.data-qa]="dataQa">Submit</button>
+
+  <p>
+    {{birthdate | date : 'MM/dd/yyyy'}}
+  </p>
+
+  <p>
+    {{birthdate | date : 'short'}}
+  </p>
+
+  <p>
+    {{birthdate | date : 'full'}}
+  </p>
+
+  <p>
+    {{birthdate | date : 'mm:ss'}}
+  </p>
+
+  <p>A: {{ a | currency }}</p>
+
+  <p>A: {{ a | currency: 'INR' }}</p>
+
+  <p>A: {{ a | currency: 'INR' : 'code' }}</p>
+
+  <p>B: {{ b | currency: 'INR' : 'symbol' : '4.2-2' }}</p>
+
+  <p>B: {{ b | currency: 'INR' : 'symbol' : '4.3-6' }}</p>
+
+  <p>A: {{ a | currency: 'INR' : 'symbol' : '4.7-10' }}</p>
+
+  <p>B: {{ b | currency: 'CAD' : 'symbol' : '4.2-2': 'fr' }}</p>
+
+  <p>{{title | lowercase}}</p>
+
+  <p>{{title | uppercase}}</p>
+
+  <p>{{title | titlecase}}</p>
+
+  <p>{{ 'some string' | titlecase }}</p>
+
+  <hr/>
+
+  <p>{{employerName | empty}}</p>
+
+  <p>{{98 | tempConvert : 'C'}}</p>
+  <p>{{98 | tempConvert : 'F'}}</p>
+  <p>{{0 | tempConvert : 'F'}}</p>
+
+<p>{{collection | json}}</p>
+
+<p>{{object | json}}</p>
+
+
+<p>{{collection | slice : 1 : 3}}</p>
+
+<p>A: {{ a | percent }}</p>
+
+@for(keyPar of course | keyvalue; track keyPar.key) {
+  <p>{{keyPar.key}}</p>
+  <p>{{keyPar.value}}</p>
+}
+
+@for(item of client| keyvalue; track item.key) {
+  <h3>{{item.key}}</h3>
+  <div>
+    @for(innerItem of item.value; track innerItem) {
+      <p>{{innerItem}}</p>
+    }
+  </div>
+}
+
