@@ -1,0 +1,11 @@
+<input [appMinLength]="5" #firstNameInput type="text" />
+<input [appMinLength]="7" appElementHover #secondNameInput type="text" />
+
+<button appElementHover type="button" (click)="onShowClick(firstNameInput.value)">Show</button>
+<button type="button" (click)="onShowClick1()">Show1</button>
+
+<div appElementHover>
+
+</div>
+
+<app-product></app-product>

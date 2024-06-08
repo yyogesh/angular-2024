@@ -27,8 +27,6 @@ export class AppComponent {
   client={one:['one','one one'],two:['two','two 2','two 3']}
 
   constructor() {
-    // this.a = "asdf";
-    // this.result = "asdf"
     if(this.title === 'angular-material-design') {
       this.employerName = 'ABC'
     }
