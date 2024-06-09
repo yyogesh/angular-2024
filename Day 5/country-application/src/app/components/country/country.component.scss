@@ -1,3 +1,11 @@
-table {
+:host {
+  table {
     width: 100%;
   }
+  
+  .country-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+}

@@ -1,7 +1,4 @@
 <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-   
-  
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
       <td mat-cell *matCellDef="let element"> {{element.position}} </td>
@@ -25,22 +22,65 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table> -->
-
-  <table>
+<input type="text" [(ngModel)]="search"/>
+<table class="table">
+  <thead>
     <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Capital</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Capital</th>
+      <th>Border</th>
     </tr>
+  </thead>
+  <tbody>
     @for(country of countries; track country) {
-        <tr>
-            <td><img [src]="country.flags.png"></td>
-            <td>{{country.name.common}}</td>
-            <td>{{country.capital[0]}}</td>
-            <td> <ul>@for(border of country.borders; track border) {
-                <li>{{border}}</li>
-            }</ul>
-        </td>
-        </tr>
+    <tr>
+      <td><img width="80px" [src]="country.flags.png" [alt]="country.flags.alt"></td>
+      <td>{{country.name.common}}</td>
+      <td>{{country.capital[0]}}</td>
+      <td>
+        @if(country.borders) {
+          <app-list [search]="search" [borders]="country.borders" (onDetail)="onBorderDetail($event)"></app-list>
+        }
+      </td>
+    </tr>
     }
-  </table>
+  </tbody>
+</table>
+@if(likedCountry) {
+  <div class="alert alert-primary" role="alert">
+    {{likedCountry}}
+  </div>
+}
+<div class="country-card-container">
+  @for(country of countries; track country) {
+    <app-country-card (onLike)="onCountryLike($event)" [country]="country"></app-country-card>
+    }
+</div>
+
+<app-panel [panelTitle]="'Title'">
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+  <div>
+    <h5 class="card-title">Special title treatment Parent</h5>
+  </div>
+</app-panel>

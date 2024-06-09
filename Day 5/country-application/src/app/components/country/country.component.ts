@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { COUNTRY_DATA } from '../../data/country';
 import {MatTableModule} from '@angular/material/table';
+import { ListComponent } from '../list/list.component';
+import { FormsModule } from '@angular/forms';
+import { CountryCardComponent } from '../country-card/country-card.component';
+import { PanelComponent } from '../panel/panel.component';
 
 export interface PeriodicElement {
   name: string;
@@ -26,13 +30,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-country',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, ListComponent, FormsModule, CountryCardComponent, PanelComponent],
   templateUrl: './country.component.html',
   styleUrl: './country.component.scss'
 })
 export class CountryComponent {
   countries = COUNTRY_DATA;
+  search = '';
+  likedCountry: string = '';
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  onBorderDetail(borders: string[]): void {
+    console.log('borders', borders);
+  }
+
+  onCountryLike(countryName: string): void {
+    this.likedCountry = countryName;
+  }
 }
