@@ -32,3 +32,17 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+<div>
+  {{(todos$ | async)?.length}}
+</div>
+
+@if((todos$ | async); as todos) {
+  <ul>
+    @for(todo of todos; track todo) {
+      <li >
+        {{todo.title}}
+      </li>
+    }
+  </ul>
+}

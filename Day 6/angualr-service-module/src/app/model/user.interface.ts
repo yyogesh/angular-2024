@@ -11,15 +11,3 @@ export interface IUser {
     website: string;
     company: ICompany;
 }
-
-
-// class User {
-//     public int id {get; set;}
-//     public string name {get; set;}
-//     public string username {get; set;}
-//     public string email {get; set;}
-//     public IAddress address {get; set;}
-//     public string phone {get; set;}
-//     public string website {get; set;}
-//     public ICompany company {get; set;}
-// }
