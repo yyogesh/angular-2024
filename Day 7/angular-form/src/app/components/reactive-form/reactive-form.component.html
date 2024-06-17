@@ -17,6 +17,18 @@ UserForm
 <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
     <label for="first-name">First Name: </label>
     <input id="first-name" type="text" formControlName="firstName" />
+    <!-- {{userForm.controls.firstName?.errors?.['required']}} -->
+    @if(userForm.controls.firstName.errors?.['required']) {
+        <div>
+            First Name is required
+        </div>
+    }
+
+    @if(userForm.controls.firstName.errors && userForm.controls.firstName.errors['minlength']) {
+        <div>
+            First Name must be at least 3 characters
+        </div>
+    }
 
     <label for="last-name">Last Name: </label>
     <input id="last-name" type="text" formControlName="lastName" />
@@ -33,5 +45,6 @@ UserForm
         <input id="zip" type="text" formControlName="zip">
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">UserForm Submit</button>
+    {{userForm.controls.firstName.errors| json}}
 </form>

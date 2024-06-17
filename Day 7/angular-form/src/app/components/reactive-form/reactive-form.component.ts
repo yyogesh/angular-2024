@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -15,8 +15,8 @@ export class ReactiveFormComponent {
   })
 
   userForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    lastName: new FormControl('', Validators.required),
     address: new FormGroup({
       street: new FormControl(''),
       city: new FormControl(''),
@@ -38,6 +38,17 @@ export class ReactiveFormComponent {
         zip: 'newZip',
       }
     })
+
+    this.userForm.get('firstName')?.setValue('asfd')
+    this.userForm.controls.firstName.setValue('asfd')
+
+    this.userForm.get('firstName')?.value
+
+    this.userForm.controls.firstName.value
+
+    this.userForm.value
+
+   // this.userForm.get('address')?.get('street')
   }
 
   onProfileFormSubmit() {
