@@ -3,34 +3,78 @@
   <mat-form-field>
     <mat-label>Name</mat-label>
     <input aria-label="name" (keypress)="onInputChange($event)" formControlName="name" matInput>
-    @if (userForm.get('name')?.hasError('required')) {
-      <mat-error>Name is <strong>required</strong></mat-error>
+    <!-- userForm.get('name')?.errors['required']) -->
+    @if (userFormHasError('name', 'required')) {
+    <mat-error>Name is <strong>required</strong></mat-error>
     }
+    @if (userFormHasError('name', 'userAlreadyExists')) {
+      <mat-error>Name is already<strong>exist</strong></mat-error>
+      }
+    <!-- @if (userForm.get('name')?.hasError('required')) {
+      <mat-error>Name is <strong>required</strong></mat-error>
+    } -->
     @if (userForm.get('name')?.hasError('minlength')) {
-      <mat-error>Name should be 3 char long</mat-error>
+    <mat-error>Name should be 3 char long</mat-error>
     }
     @if (userForm.get('name')?.hasError('pattern')) {
-      <mat-error>Name should follow its pattern</mat-error>
+    <mat-error>Name should follow its pattern</mat-error>
     }
     @if (userForm.get('name')?.hasError('stdCode')) {
-      <mat-error>Std Code should be thr</mat-error>
+    <mat-error>Std Code should be thr</mat-error>
     }
   </mat-form-field>
+
+  <div formGroupName="passwordGroup" [class.error]="userForm.get('passwordGroup')?.errors?.['misMatch']">
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input aria-label="password" formControlName="password" matInput>
+      @if (userFormHasError('password', 'required')) {
+      <mat-error>Password is <strong>required</strong></mat-error>
+      }
+      @if (userFormHasError('password', 'minlength')) {
+      <mat-error>Password should be {{constrolMinLength}} char long</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input aria-label="confirm password" formControlName="confirmPassword" matInput>
+      @if (userFormHasError('confirmPassword', 'required')) {
+      <mat-error>ConfirmPassword is <strong>required</strong></mat-error>
+      }
+      @if (userForm.get('passwordGroup')?.get('confirmPassword')?.hasError('misMatch')) {
+      <mat-error>ConfirmPassword is <strong>misMatch</strong></mat-error>
+      }
+    </mat-form-field>
+  </div>
+
   <mat-form-field>
     <mat-label>Country</mat-label>
     <mat-select formControlName="country">
       @for(country of countries; track country) {
-        <mat-option [value]="country">{{country}}</mat-option>
+      <mat-option [value]="country">{{country}}</mat-option>
       }
     </mat-select>
     @if (userForm.get('country')?.hasError('required')) {
-      <mat-error>Country is <strong>required</strong></mat-error>
+    <mat-error>Country is <strong>required</strong></mat-error>
     }
   </mat-form-field>
   <mat-form-field>
     <mat-label>Comment</mat-label>
     <textarea aria-label="comment" formControlName="comment" matInput></textarea>
   </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input aria-label="search" formControlName="search" matInput>
+  </mat-form-field>
+
+  @if(isLoading) {
+    <div>
+      isLoading
+    </div>
+  }
+ 
 
   <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Submit</button>
 </form>
