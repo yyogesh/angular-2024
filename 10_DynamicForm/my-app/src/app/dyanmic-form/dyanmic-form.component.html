@@ -1,0 +1,22 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name">
+    </div>
+    <div formArrayName="items">
+       @for(item of items.controls; track item; let i = $index) {
+        <div [formGroupName]="i">
+            <label for="itemName">Item Name:</label>
+            <input id="itemName" formControlName="itemName">
+
+            <label for="quantity">Quantity:</label>
+            <input id="quantity" type="number" formControlName="quantity">
+            <button type="button" (click)="removeItem(i)">Remove</button>
+        </div>
+       }
+    </div>
+    <button type="button" (click)="addItem()">Add Item</button>
+    <button type="submit">Submit</button>
+</form>
+
+{{myForm.value | json}}

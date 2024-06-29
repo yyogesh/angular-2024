@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { checkUserValidation, compareValidator, stdCodeValidator } from './validator';
 import { UserService } from './user.service';
-import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap, tap, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
       debounceTime(200), // wait for 500ms pasuse event
       tap((value) => this.isLoading = true),
       distinctUntilChanged(),
-      switchMap(value => this.userService.searchUsers(value)),
-      tap((value) => this.isLoading = false),
+      switchMap(value => this.userService.searchUsers(value)), // 5sec
+     // tap((value) => this.isLoading = false),
       // switchMap(value => {
       //   return this.userService.searchUsers(value);
       // }),
@@ -39,7 +39,8 @@ export class AppComponent implements OnInit {
       // })
     ).subscribe(result => {
       console.log(result);
-      // this.userService.searchUsers(value).subscribe(users => {
+      this.isLoading = false
+      // this.userService.searchUsers(result).subscribe(users => {
       //   console.log(users);
       //   this.isLoading = false
       // });

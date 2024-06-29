@@ -1,0 +1,33 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name">
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email">
+  </div>
+
+  <div>
+    <label for="age">Age:</label>
+    <input id="age" type="number" formControlName="age">
+  </div>
+
+  <div formGroupName="address">
+    <label for="street">Street:</label>
+    <input id="street" formControlName="street">
+
+    <label for="city">City:</label>
+    <input id="city" formControlName="city">
+
+    <label for="zip">Zip:</label>
+    <input id="zip" formControlName="zip">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<hr/>
+
+<app-dyanmic-form></app-dyanmic-form>
