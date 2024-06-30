@@ -15,7 +15,7 @@ Strongly Typed Form
 Angular 18 Event
 
 Routing 
-    Security
+    Guard Security
     Lazy Module 
     Resolver
     Data
@@ -26,6 +26,10 @@ HttpClient
     RXJS mutliple call
     Interceptor
     Api call on module load
+
+ViewChildren
+ViewChild
+Angular 18 
 
 
 
