@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
   menus = [
-    {routerLink: 'home', displayName: 'Home'},
-    {routerLink: 'about', displayName: 'About'},
-    {routerLink: 'contact', displayName: 'Contact'},
+    {routerLink: '/home', displayName: 'Home'},
+    {routerLink: '/about', displayName: 'About'},
+    {routerLink: '/contact', displayName: 'Contact'},
+    {routerLink: '/contact/1', displayName: 'ContactByID'},
     {routerLink: '/user/user-list', displayName: 'User List'}
   ]
 }

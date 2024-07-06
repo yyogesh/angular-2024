@@ -15,11 +15,11 @@ Strongly Typed Form
 Angular 18 Event
 
 Routing 
-    Guard Security
-    Lazy Module 
-    Resolver
-    Data
-    Event
+    Guard Security -- done 
+    Lazy Module -- done
+    Resolver -- done 
+    Data -- done
+    Event -- done 
 
 HttpClient
     RXJS Operators
