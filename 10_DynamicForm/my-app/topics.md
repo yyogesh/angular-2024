@@ -22,15 +22,31 @@ Routing
     Event -- done 
 
 HttpClient
-    RXJS Operators
-    RXJS mutliple call
+    RXJS Operators --tap, map, switchmap, take, delay, distinctUntilChanged, debounce ==> done
+    RXJS mutliple call ==> done
+    Subject ==> done
+    Signal // RXJS  
+    
     Interceptor
     Api call on module load
+    provideIn
 
 ViewChildren
 ViewChild
 Angular 18 
+Curd API 
 
+ReactJS 6 PM ==> .NET CORE, REACTJS
+Typescript
+Javascript 
+ReduxJS 
+
+JavaSpring + DOcker 13
+Selenium
+Golang 
+
+DSA 
+Java Spring Project
 
 
 
