@@ -27,9 +27,9 @@ HttpClient
     Subject ==> done
     Signal // RXJS  
     
-    Interceptor
-    Api call on module load
-    provideIn
+    Interceptor ==> done
+    Api call on module load ==> done
+    provideIn ==> done
 
 ViewChildren
 ViewChild
