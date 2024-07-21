@@ -31,10 +31,10 @@ HttpClient
     Api call on module load ==> done
     provideIn ==> done
 
-ViewChildren
-ViewChild
-Angular 18 
-Curd API 
+ViewChildren ==> done
+ViewChild  ==> done
+Angular 18 ==> done
+Curd API   ==> done
 
 ReactJS 6 PM ==> .NET CORE, REACTJS
 Typescript
@@ -49,5 +49,13 @@ DSA
 Java Spring Project
 
 
-
+// Program.cs
+//Add CORS to allow calls from FrontEnd.
+builder.Services.AddCors(option => option.AddPolicy(name: "ABC_UI",
+policy =>
+{
+    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader()
+}));
     
+app.UseCors("ABC_UI");
+app.UseHttpsRedirection();

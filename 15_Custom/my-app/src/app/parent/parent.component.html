@@ -1,0 +1,15 @@
+<p>parent works!</p>
+<h2 #parentTitle>Parent Component</h2>
+
+<app-child #firstChild [title]="'First Child'" [content]="'Content 1'"></app-child>
+
+<button (click)="modifyFirstChild()">Modify First Child</button>
+<hr/>
+@for(item of items; track item; let i = $index) {
+    <app-child
+    [title]="'Child ' + (i + 2)" 
+    [content]="'Content ' + (i + 2)"
+    ></app-child>
+}
+
+<button (click)="highlightAllChildren()">Highlight All Children</button>
