@@ -1,0 +1,17 @@
+<h2>Create a New Book</h2>
+<form (ngSubmit)="onSubmit()">
+    <input [(ngModel)]="newBook.title" name="title" placeholder="Title">
+    <input [(ngModel)]="newBook.author" name="author" placeholder="Author">
+    <input [(ngModel)]="newBook.year" name="year" type="number" placeholder="Year">
+    <button type="submit">Create Book</button>
+</form>
+
+<h2>All Books</h2>
+<ul>
+    @for(book of books; track book) {
+    <li>
+        {{ book.title }} by {{ book.author }} ({{ book.year }})
+    </li>
+    }
+
+</ul>
